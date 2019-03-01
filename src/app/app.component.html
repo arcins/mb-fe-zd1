@@ -1,0 +1,11 @@
+<h4>Liczby od 1 do 100. Dla wielokrotności liczby trzy wypiuje "Minebest !" zamiast liczby i dla wielokrotności liczby pięć wypisuje "Bitcoin !": </h4>
+<div>
+  <span *ngFor="let item of makeArray(100); let i = index;">
+    <span *ngIf="(i+1)%3 && (i+1)%5; else threeOrFive">{{ i+1 }}</span>
+    <ng-template #threeOrFive>
+      <span *ngIf="!((i+1)%3)" class="minebest">Minebest !</span>
+      <span *ngIf="!((i+1)%5)" class="bitcoin">Bitcoin !</span>
+    </ng-template>
+    <span *ngIf="i<99">, </span>
+  </span>
+</div>
